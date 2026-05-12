@@ -15,7 +15,8 @@
     <meta name="twitter:description" content="How I built and learned it — Claude Code, Obsidian, n8n, self-hosted AI, and more">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:wght@400;500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/marked.min.js"></script>
+    <!-- FIX 1: marked.js now has version 4.3.0 — previously missing version caused 404 and broke ALL tutorials -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
         :root {
@@ -637,6 +638,7 @@
 
     <script>
         // Tutorial data
+        // FIX 2: All 4 URLs now point to tutorial-site/content/ — consistent, public, no MyBrain repo dependency
         const tutorials = [
             {
                 id: 'building-systems',
@@ -653,13 +655,15 @@
             {
                 id: '2nd-brain',
                 title: '2nd Brain Setup',
-                url: 'https://raw.githubusercontent.com/Tselseya/MyBrain/main/2nd-brain-usage-guide.md',
+                // FIX 3: Was pointing to MyBrain repo (may be private). Now in tutorial-site/content/
+                url: 'https://raw.githubusercontent.com/Tselseya/tutorial-site/main/content/2nd-brain-usage-guide.md',
                 date: null
             },
             {
                 id: 'mathdesk-build',
                 title: 'MathDesk Build Log',
-                url: 'https://raw.githubusercontent.com/Tselseya/MyBrain/main/MathDesk/Build-Log.md',
+                // FIX 4: Was 404 (file didn't exist in MyBrain/MathDesk/). Now in tutorial-site/content/
+                url: 'https://raw.githubusercontent.com/Tselseya/tutorial-site/main/content/mathdesk-build-log.md',
                 date: null
             }
         ];
