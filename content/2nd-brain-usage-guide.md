@@ -335,7 +335,7 @@ ollama launch claude --model gemma4:cloud
 | Claude Code answers but won't create files | On a local model | Switch to `minimax-m2.5:cloud` via `brain` |
 | Claude Code can't find files | Wrong launch directory | Exit, run `brain` (alias handles navigation automatically) |
 | "Not logged in · Run /login" on startup | Typed `claude` instead of `brain` | Always use `brain` alias, never plain `claude` |
-| "64 skill descriptions dropped" warning | Too many skills for 1% context budget | Run: `@'{"hasCompletedOnboarding":true,"claudeCodeAttribution":false,"skillListingBudgetFraction":0.05}'@ \| Set-Content "$env:USERPROFILE\.claude\settings.json"` |
+| "64 skill descriptions dropped" warning | Too many skills for 1% context budget | Run: `@'{"hasCompletedOnboarding":true,"claudeCodeAttribution":false,"skillListingBudgetFraction":0.05}'@ | Set-Content "$env:USERPROFILE\.claude\settings.json"` |
 | Skill truncation still showing after fix | Settings file not saved correctly | Run `type "$env:USERPROFILE\.claude\settings.json"` — verify all 3 fields present |
 | Session cuts off mid-task | Context length too low | Ollama Settings → context slider → 64k |
 | Auth conflict warning on startup | `primaryApiKey` in settings.json | Re-run settings fix — two fields only: `hasCompletedOnboarding` + `claudeCodeAttribution` |
@@ -425,8 +425,6 @@ Remove-Item -Recurse -Force ".claude\skills\[skill-name]"
 Gone on next session. Nothing else to update.
 
 ---
-
-
 
 ### The Non-Negotiables (Things That Break If You Skip Them)
 
